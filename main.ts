@@ -1,3 +1,4 @@
+pins.analogWritePin(AnalogPin.P0, 454)
 let isSwitched = 0
 let doorgelaten = 0
 let weerstand = 0
@@ -11,7 +12,7 @@ while (true) {
         basic.showString(convertToText(pins.analogReadPin(AnalogPin.P0)))
     } else {
         isSwitched = 0
-        doorgelaten = pins.analogReadPin(AnalogPin.P0) / 1024 * 3.2
+        doorgelaten = Math.trunc(pins.analogReadPin(AnalogPin.P0) / 1024 * 3.2)
         basic.showString("" + convertToText(doorgelaten) + "V")
     }
     basic.pause(100)
